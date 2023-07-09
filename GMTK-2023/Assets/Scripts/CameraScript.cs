@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     [SerializeField]
-    private Transform Player;
+    private Transform _player;
 
     // Start is called before the first frame update
     void Start() { }
@@ -14,8 +14,8 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(
-            Player.transform.position.x,
-            Player.transform.position.y,
+            _player.transform.position.x,
+            _player.transform.position.y,
             -10f
         );
     }
