@@ -9,7 +9,7 @@ public class IntersectionScript : MonoBehaviour
     private GameObject _highlight;
 
     [SerializeField]
-    private GameObject _blockade;
+    private GameObject[] _parts;
 
     private BoxCollider2D _collider;
 
@@ -39,10 +39,18 @@ public class IntersectionScript : MonoBehaviour
         if (_collider.isTrigger == false)
         {
             _collider.isTrigger = true;
+            _parts[0].SetActive(false);
+            _parts[1].SetActive(false);
+            _parts[2].SetActive(false);
+            _parts[3].SetActive(false);
         }
         else
         {
             _collider.isTrigger = false;
+            _parts[0].SetActive(true);
+            _parts[1].SetActive(true);
+            _parts[2].SetActive(true);
+            _parts[3].SetActive(true);
         }
         var graphToScan = AstarPath.active.data.gridGraph;
         AstarPath.active.Scan(graphToScan);
